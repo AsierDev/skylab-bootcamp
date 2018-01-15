@@ -1,0 +1,176 @@
+body {
+    background-color: #7ff5ff;
+    
+}
+
+h1 {
+    text-align: center
+}
+
+#game {
+    width: auto;
+    margin: 5%;
+}
+
+#container {
+    background: blue;
+    display: flex;
+    width: 40em;
+    height: 40em; 
+/*    float: left;*/
+/*    margin: 5em 0 0 5em;*/
+    position: absolute;
+   
+    
+}
+#centerRosco {
+   position: absolute;
+    margin: 8em 0 0 9em;
+    width: 22em;
+    background-color: yellow;
+}
+
+#rosco {
+    background: grey;
+    margin: 1em;
+    width: 100%;
+   
+}
+
+.letters {
+    font-size: 1.5em;  
+    text-align: center;
+    font-weight: bold;
+    border: solid 3px white;
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 1em;
+    background-color: blue;
+    color: white;
+    margin: 0.2em;
+    display: block;
+}
+
+
+#scoreboard {
+    display: block;
+    background: purple;
+    position: absolute;
+    width: 22em;
+    z-index: 99;
+}
+#showTime {
+    float: left;
+    text-align: center;
+    margin-left: 10%;
+}
+#showScore {
+    float: right;
+    text-align: center;
+    margin-right: 10%;
+
+}
+
+#showQuestions {
+    display: block;
+    width: 95%;
+        
+
+}
+#answer {
+    width: 95%;
+    height: 2em;
+    margin: 0 2% 2% 2%; 
+
+}
+
+#lA {
+    transform: translate(9.8em)
+}
+#lB {
+    transform: translate(12.4em,-2.4em)
+}
+#lC {
+    transform: translate(14.8em,-4.3em)
+}
+#lD {
+    transform: translate(17.1em,-5.6em)
+}
+#lE {
+    transform: translate(18.9em,-6.3em)
+}
+#lF {
+    transform: translate(20.2em,-6.6em)
+}
+#lG {
+    transform: translate(20.8em,-6.6em)
+}
+#lH {
+    transform: translate(21em,-6.5em)
+}
+#lI {
+    transform: translate(20.3em,-6.5em)
+}
+#lJ {
+    transform: translate(19em,-6.5em)
+}
+#lK {
+    transform: translate(17.3em,-7em)
+}
+#lL {
+    transform: translate(15.4em,-7.8em)
+}
+#lM {
+    transform: translate(13.2em,-9.1em)
+}
+#lN {
+    transform: translate(10.7em,-10.9em)
+}
+#lÑ {
+    transform: translate(8.2em,-13.4em)
+}
+#lO {
+    transform: translate(5.6em,-16.4em)
+}
+#lP {
+    transform: translate(3.3em,-20em)
+}
+#lQ {
+    transform: translate(1.4em,-24.3em)
+}
+#lR {
+    transform: translate(0.1em,-29.1em)
+}
+
+#lS {
+    transform: translate(-1em,-34.1em)
+}
+#lT {
+    transform: translate(-1.7em,-39.3em)
+}
+#lU {
+    transform: translate(-1.6em,-44.5em)
+}
+#lV {
+    transform: translate(-0.8em,-49.6em)
+}
+#lW {
+    transform: translate(0.7em,-54.3em)
+}
+#lX {
+    transform: translate(2.5em,-58.9em)
+}
+
+#lY {
+    transform: translate(4.7em,-63em)
+}
+#lZ {
+    transform: translate(7.2em,-66.6em)
+}
+
+
+
+
+
+
+

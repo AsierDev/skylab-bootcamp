@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+ 
+<html lang="es">
+ 
+<head>
+<title>Pasapalabra</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="images/ico.ico" />
+
+</head>
+ 
+<body>
+    <header>
+      
+      
+    </header>
+    
+    <div id="game">
+
+        <main id="container">
+         
+            <ul id="rosco">
+                <li id="lA" class="letters">A</li>    
+                <li id="lB" class="letters">B</li>    
+                <li id="lC" class="letters">C</li>    
+                <li id="lD" class="letters">D</li>    
+                <li id="lE" class="letters">E</li>    
+                <li id="lF" class="letters">F</li>    
+                <li id="lG" class="letters">G</li>    
+                <li id="lH" class="letters">H</li>    
+                <li id="lI" class="letters">I</li>    
+                <li id="lJ" class="letters">J</li>    
+                <li id="lK" class="letters">K</li>    
+                <li id="lL" class="letters">L</li>    
+                <li id="lM" class="letters">M</li>    
+                <li id="lN" class="letters">N</li>    
+                <li id="lÑ" class="letters">Ñ</li>    
+                <li id="lO" class="letters">O</li>    
+                <li id="lP" class="letters">P</li>    
+                <li id="lQ" class="letters">Q</li>    
+                <li id="lR" class="letters">R</li>    
+                <li id="lS" class="letters">S</li>    
+                <li id="lT" class="letters">T</li>    
+                <li id="lU" class="letters">U</li>    
+                <li id="lV" class="letters">V</li>    
+                <li id="lW" class="letters">W</li>    
+                <li id="lX" class="letters">X</li>    
+                <li id="lY" class="letters">Y</li>    
+                <li id="lZ" class="letters">Z</li>    
+            </ul>
+      
+         </main>
+
+        <div id="centerRosco">
+                <h1>Pasapalabra</h1>
+
+                <h3 id="askQuestion">Pulsa Start para comenzar el juego. Dispones de 180 segundos para completar el rosco con los menos fallos posibles.</h3>
+
+                <div id="playagain">
+                    <button id="startGame"> Start </button> 
+                    <div id="showQuestions"> 
+                        <form onsubmit="return false">
+                            <input id="answer" type="text">
+                            <button id="sendAnswer">Enviar</button>
+                            <button id="skipWord"> PASAPALABRA</button>   
+                        </form>
+                    </div>
+
+                    <div id="scoreboard">
+                        <div id="showTime"> 
+                            <h3>Time</h3>
+                            <p id="time">180</p>
+                        </div> 
+
+                        <div id="showScore">
+                            <h3>Aciertos</h3>
+                            <p id="correct">0</p>  
+                        </div> 
+                    </div>
+                </div>    
+        </div>
+        <div id="showup">
+            <h3>¿Quieres jugar de nuevo?</h3>
+            <button id="wannaplay" onclick="location.reload()">SI</button>
+            <button id="dontwannaplay" onclick="dontPlayAgain()">NO</button>
+        </div>
+    
+     </div>
+
+    <footer>
+      
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -32,3 +32,15 @@ while(count > 0) {
 // output -> 4,3,2,1
 
 ```
+
+## **prototype polyfill :** 
+Sirve para cambiar las "funciones por defecto, ej: forEach" funciones que no existan, por ejemplo en navegadores viejos.
+```javascript
+Array.prototype.forEach = function(func) {
+    for (var i 0= 0; i < this.length; i++) 
+        func(this[i])
+}
+```
+
+## Constructores de objetos
+Buscar más sobre prototype

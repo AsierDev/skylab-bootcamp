@@ -43,4 +43,9 @@ Array.prototype.forEach = function(func) {
 ```
 
 ## Constructores de objetos
-Buscar más sobre prototype
+Buscar más sobre prototype y herencias entre objetos.
+
+## scope this bind call apply
+Buscar sobre esto [por ejemplo](https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind)
+
+

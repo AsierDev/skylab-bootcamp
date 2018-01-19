@@ -54,7 +54,7 @@ function Hangman(word, attemps) {
 
 }
 
-var game = new Hangman("perro", 10)
+var game = new Hangman("hello", 10)
 
 
 //game.try("p")
@@ -73,7 +73,7 @@ console.log(game.try("p"))
 console.log(game.try("r"))
 console.log(game.try("o"))
 console.log(game.try("e")) */
-
+console.log(game.try(1))
 
 
 console.log(game.try("perro")) 

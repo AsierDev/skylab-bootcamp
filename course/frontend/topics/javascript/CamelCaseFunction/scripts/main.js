@@ -17,7 +17,7 @@ toLowerSpaceCase("thisIsThe1stFunction") */
 
 
 
-function splitCamelCase(str) {
+function camelCaseToLowerCaseWithSpaces(str) {
     var array = str.split('');
     array[0] = array[0].toUpperCase();
     var exp = /[A-Z0-9=*()/&$%·"!-:;<>{}^*]/g;
@@ -34,9 +34,10 @@ function splitCamelCase(str) {
     
     return array.join('');
 }
-console.log(toLowerSpaceCase("thisIsThe1stFunction"))
+
+/* console.log(toLowerSpaceCase("thisIsThe1stFunction"))
 console.log(toLowerSpaceCase("hOlA"))
 console.log(toLowerSpaceCase("h1opOlAr3rTyE7afg9"))
 console.log(toLowerSpaceCase("holaQueTalEs=ACosas"))
 console.log(toLowerSpaceCase("hol*Qeu%hol`fgg·2fy/rggs&4fsfsFsd=ACosas"))
-console.log(toLowerSpaceCase("11111111"))
+console.log(toLowerSpaceCase("11111111")) */

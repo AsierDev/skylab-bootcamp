@@ -1,18 +1,15 @@
-function camelCaseToLowerCaseWithSpaces(str) {
-    var array = str.split('');
-    array[0] = array[0].toUpperCase();
-    var exp = /[A-Z0-9=*()/&$%·"!-:;<>{}^*]/g;
-    var find = str.match(exp);
-    console.log(find)
+function camelCaseToLowerCaseWithSpaces(_word) {
+    var newWord = ''
+    var exp = /[A-Z0-9=*()/&$%!<>{}*]/g
+    try {
+        if (_word === '' || typeof (_word) !== "string") throw new Error("erorr")
 
-    for (var i = 1; i < array.length; i++) {
-        for (var j = 0; j < find.length; j++) {
-            if (array[i] == find[j]) {
-                array[i] = ' ' + array[i].toLowerCase();
-            }
+        newWord += _word[0].toLowerCase()
+        for (let i = 1; i < _word.length; i++) {
+            newWord += (_word[i].match(exp)) ? " " + _word[i].toLowerCase() : _word[i]
         }
-
+        return newWord
+    } catch (err) {
+        return false
     }
-
-    return array.join('');
 }

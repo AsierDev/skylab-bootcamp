@@ -143,7 +143,6 @@ console.log(this) //==> Window
 
 // this en higher order function
 var a = [1]
-undefined
 a.forEach(function(n) {
 	console.log(this);  //==> Window
 })
@@ -165,35 +164,27 @@ obj.foo() === obj; //==>  true
 
 ## bind() 
 
-Lo usamos para _atar o unir_ una función a cierto contexto (_var normalmente_). Necesita ser invocada posteriormente.
+Lo usamos para _atar o unir_ una función a cierto contexto (this normalmente). Necesita ser invocada posteriormente.
 
 ```javascript
-this.x = 9;
-var module = {
-  x: 81,
-  getX: function() { return this.x; }
-};
 
-module.getX(); // 81
-
-var getX = module.getX;
-getX(); // 9, porque en este caso, "this" apunta al objeto global
-
-// Crear una nueva función con 'this' asociado al objeto original 'module'
-var boundGetX = getX.bind(module);
-boundGetX(); // 81
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-var person = {  
-  name: "James Smith",
-  hello: function(thing) {
-    console.log(this.name + " says hello " + thing);
-  }
+function bindObj(arr) {
+    this.name = "a";
+    this newArr = arr.map(function(v) {
+        return this.name + v;
+    }.bind(this)); //enlaza esta high order function con el "this" de "bindObj". Con esto evitamos que apunte a window.   
 }
 
-person.hello("world");  // output: "James Smith says hello world"
-person.hello.call({ name: "Jim Smith" }, "world"); // output: "Jim Smith says hello world"
+/////Sería similar a hacer lo siguiente
+
+function bindObj(arr) {
+    var self = this;  // asignamos a la var "self" el "this" de bindObj.
+    this.name = "a";
+    this newArr = arr.map(function(v) {
+        return self.name + v;
+    }); 
+}
+
 
 ```
 
@@ -245,6 +236,41 @@ function personContainer() {
   person.hello.apply(person, arguments);
 }
 personContainer("world", "mars"); // output: "James Smith says hello mars", note: arguments[0] = "world" , arguments[1] = "mars"   
+
+```
+
+## reduce function
+Ampliar info (https://www.youtube.com/watch?v=Wl98eZpkp-c)
+
+```javascript
+
+var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+
+var countedNames = names.reduce(function (allNames, name) {
+if (name in allNames) {
+allNames[name]++;
+}
+else {
+allNames[name] = 1;
+}
+return allNames;
+}, {});
+//output ==> { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }
+
+/////////////////////////////////////////
+
+```
+
+## HTML & CSS
+
+Buscar inputs "get"
+
+```html
+
+<form action="https://www.google.es/search" method="get">
+    <input type="text" placeholder="search something" name="query">
+    <button typer="submit">search<button>
+</form>
 
 ```
 

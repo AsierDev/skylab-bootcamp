@@ -1,0 +1,47 @@
+li {
+    text-decoration: underline;
+    list-style: square;
+    background: white;
+    padding-left: 5px;
+}
+ul {
+    background: #00c5ea;
+    
+}
+
+h1 {
+    text-shadow: 12px -10px 3px #938888;
+    text-decoration: underline red;
+}
+
+button {
+    background: green;
+    border-radius: 15px;
+    height: 80px;
+    width: 150px;
+    border: 3px solid black;
+    color: white;
+    box-shadow: 1px 5px #938888;
+}
+button:hover {
+    color: black;
+    background: white;
+}
+
+img {
+    border-radius: 50%;
+    border: dotted 4px black;
+    filter: grayscale();
+    
+}
+
+#triangle-up {
+    height: 0;
+    width: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;;
+    
+    
+}
+

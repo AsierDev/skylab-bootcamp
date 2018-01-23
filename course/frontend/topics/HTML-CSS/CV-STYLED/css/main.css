@@ -1,6 +1,87 @@
 body {
-    background: #f8f4e7
+    background: #ffffff;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3 {
+    color: #d09427;
+    margin-left: 30px;
+    font-size: 1.2em
 }
 
 #profile {
     width: 80px;
+    margin-left: 30px;
+    margin-top: 10px;
+    float: left;
+}
+
+header>h2 {
+    margin-left: 50px;
+    display: inline-block;
+    
+}
+
+header>aside {
+    float: right;
+    margin-right: 30px;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    border-bottom: solid 3px #d09427;
+    padding-bottom: 15px;
+}
+
+section {
+    display: block;
+    position: relative;
+    margin: 40px 0;
+    width: 100%;
+    border-bottom: 1px solid #bebebe;
+}
+
+
+.title {
+    width: 28%;
+    display: inline-block;
+    
+}
+
+.description {
+    width: 70%;
+    display: inline-block;
+    
+}
+
+#PersonalProf {
+    
+    padding-bottom: 10px;
+
+}
+
+#skills ul {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    
+        
+}
+
+#projects figure{
+    display: inline-block;
+}
+
+strong {
+    font-size: 1.1em
+}
+
+em {
+    font-size: 0.9em;
+}

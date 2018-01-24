@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 60px );
+    /*grid-template-areas: 
+        "m h h h h h h h h h h h"
+        "m c c c c c c c c c c c"
+        ". f f f f f f f f f f f";*/
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    background: blue;
+}
+
+.box1 {}

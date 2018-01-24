@@ -50,3 +50,37 @@ function reduce() {
 }
 console.log(reduce());
 
+/* ## every & some
+
+Write a high order function that returns true if all months have five letters or more, and if some month has five letters or more. */
+
+var months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+
+var every = months.every(function(x) {
+    return x.length >=5;
+})
+console.log("Deberia ser false => "+every)
+
+var some = months.some(function (x) {
+    return x.length >= 5;
+})
+console.log("Deberia ser true => " + some)
+
+/* ## Callback
+
+Write a callback function that receives an age and a callback function, if age is equal or great than 18, call the callback function to allow enter in a bar, if hasn't 18 the entrance is not allowed. */
+
+function moreThan18(n) {
+    if (n >= 18) {
+        alert("adelante");
+    } else {
+        alert("no puedes pasar");
+    }
+}
+
+function whatAge(callback) {
+    var age = Number(prompt("Introduce edad"));
+    callback(age);
+} 
+
+console.log(whatAge(moreThan18));

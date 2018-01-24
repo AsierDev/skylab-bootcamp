@@ -1,15 +1,15 @@
 body {
-    background: #ffffff;
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    background: #f4e9d5;
+    margin-left: 10%;
+    margin-right: 10%;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 h3 {
     color: #d09427;
     margin-left: 30px;
-    font-size: 1.2em
+    font-size: 1.2em;
+    position: relative;
 }
 
 #profile {
@@ -51,7 +51,8 @@ section {
 .title {
     width: 28%;
     display: inline-block;
-    
+    position: relative;
+ 
 }
 
 .description {
@@ -71,17 +72,39 @@ section {
     width: 25%;
     float: left;
     
-        
 }
 
 #projects figure{
     display: inline-block;
 }
 
+dt {
+  margin-bottom: 10px;  
+}
 strong {
-    font-size: 1.1em
+    font-size: 1.1em;    
 }
 
 em {
     font-size: 0.9em;
+}
+
+#PersonalProf h3 {
+    top: -15px
+}
+
+#work h3 {
+    top: -280px
+}
+
+#skills h3{
+    top: -60px
+}
+
+#education h3{
+    top: -180px
+}
+
+#projects h3 {
+    top: -90px
 }

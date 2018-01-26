@@ -147,7 +147,7 @@ function mergeArrays(arr1, arr2) {
 console.log("Encontrar duplicado de [1, 2, 3] y [2, 30, 1] return [3, 2, 30, 1] => " + mergeArrays([1, 2, 3], [2, 30, 1]))
 
 
-/* separateEven
+/*  separateEven
 
 Write a JavaScript program which accept a number as input and insert dashes(-) between each two even numbers.For example if you accept 025468 the output should be 0 - 254 - 6 - 8.
  */
@@ -170,7 +170,7 @@ console.log("de esto 025468 ha de dar 254-68=> "+separateEven(025468));
 console.log("de esto 7494868 ha de dar 7494-8-6-8=> " + separateEven(7494868));   
 
 
-/* ### findPairSum
+/* 32 ### findPairSum
 
 Write a JavaScript program to find a pair of elements (indices of the two numbers) from an given array whose sum equals a specific target number.
 
@@ -193,7 +193,7 @@ console.log("Numbers= [10,20,10,40,50,60,70], target=50 and the output should be
 
 
 
-/* ### validValues
+/*  33 ### validValues
 
 Write a JavaScript function to retrieve the value of a given property from all elements in an array.
 

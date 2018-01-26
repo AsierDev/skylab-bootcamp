@@ -1,0 +1,42 @@
+$font-stack: courier, sans-serif;
+$primary-color: white;
+$small-text: 10px;
+$large-text: 20px;
+
+body {
+  background-color: $primary-color;
+  font: normal 14px $font-stack; 
+}
+
+.container {
+  padding: 25px;
+  position: fixed; }
+
+.form-login {
+  background-color: aquamarine;
+  padding-top: $small-text;
+  padding-bottom: $large-text;
+  padding-left: $large-text;
+  padding-right: $large-text;
+  border-radius: $small-text;
+  border-color: black;
+  border-width: 1px; }
+
+h4 {
+  border: 0 solid $primary-color;
+  border-bottom-width: 1px;
+  padding-bottom: $small-text;
+  text-align: center; }
+
+.form-control {
+  border-radius: $small-text;
+  border-color: gray;
+  border-width: 1px; }
+
+.wrapper {
+  text-align: center; }
+
+
+
+
+

@@ -261,6 +261,17 @@ return allNames;
 
 ```
 
+## jQuery
+
+...
+
+
+## AJAX
+
+
+
+
+
 ## HTML & CSS
 
 Buscar inputs "get"
@@ -273,4 +284,9 @@ Buscar inputs "get"
 </form>
 
 ```
+
+## SASS 
+
+...
+
 

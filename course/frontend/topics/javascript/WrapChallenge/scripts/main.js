@@ -1,23 +1,36 @@
 
-/* function text(str) {
-    var string = str;
-    this.wrap = function(w1, w2) {
-        if (w2 == undefined) {
-            return w1 + string + w1;
-        } else {
-            return w1 + string + w1;
+/*
+Crear algo que devuelva un output => text("something").wrap("%").wrap("[","]").wrap("&").etc
+output ==> &[%someting%]&
+ */
+
+
+function text(source) {
+    var wrap = function (arg1, arg2) {
+        if (arg2 === undefined) {
+            arg2 = arg1;
         }
-    }
-} 
 
-console.log(text("hola").wrap("/")) */
+        source = arg1 + source + arg2;
+        return this;
+    };
+
+    var toString = function () {
+        return source;
+    };
+
+    return {
+        wrap: wrap,
+        toString: toString
+    };
+}
+
+console.log(text('something').wrap('$').wrap('[', ']').wrap('{', '}').wrap('<', '>').wrap('#').toString());
 
 
-var text2 = {
-    str: "hello",
-    wrap:  function(w) {
-        return this.wrap + this.str + this.wrap;        
-    }
-} 
-console.log(text2.wrap("&"))
+/*
+Crear algo que devuelva un output => text("something").wrap("%").wrap("[","]").wrap("&").indexOf("0")
+output ==> "&[%someting%]&1"
+ */
 
+ 

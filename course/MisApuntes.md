@@ -271,6 +271,13 @@ return allNames;
 
 
 
+## Node.js
+
+- npm i -g http-server  ==>> Montar servidor
+- 
+
+
+
 
 ## HTML & CSS
 

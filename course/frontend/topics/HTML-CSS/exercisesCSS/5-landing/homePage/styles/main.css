@@ -91,7 +91,7 @@ nav > ul > li {
     border-left: 1px solid #b7dce3;
     align-self: center;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     font-weight: 600;
     color: #3E3E36;
     
@@ -99,7 +99,7 @@ nav > ul > li {
 
 nav > ul > li:nth-child(1) {
     border-left: none;
-    margin-left: -20px;
+    margin-left: -30px;
 }
 
 nav input {
@@ -165,7 +165,7 @@ section {
 .content {
     background-color: #EFEFEF;
     width: 90%;
-    border-radius: 1%;
+    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 2%;
@@ -175,9 +175,11 @@ section {
 }
 
 .content h2 {
-    margin-left: 100px;
+    margin-left: 80px;
     margin-top: -1%;
-    margin-bottom: -1%;
+    margin-bottom: -20px;
+    color: #3E3E36;
+    font-size: 1.8em;
 }
 
 .content ul{

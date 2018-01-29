@@ -7,7 +7,7 @@ input -> removeRepeatChars('aabcbcb') output -> abc
 */
 
 
- function removeRepeatChars(str) {
+ /* function removeRepeatChars(str) {
 
     var string = str.split('').sort();
     console.log(string)
@@ -26,14 +26,36 @@ input -> removeRepeatChars('aabcbcb') output -> abc
 console.log(removeRepeatChars('aabcbcb'))
 console.log(removeRepeatChars('hhhddddhhhhdddhhhhddd'))
 console.log(removeRepeatChars('jajajaja!'))
-console.log(removeRepeatChars('perroverde')) 
+console.log(removeRepeatChars('perroverde'))  */
 
 
-/* function removeRepeatChars(str) {
+function removeRepeatChars(str) {
     
-    var 
+    var string = str.split('').sort();
+    var newString = [];
+    var i = 0;
+    
+    function remove(str) {
+
+        while (string.length > 0) {
+
+            if (string[i] !== string[i+1]) {
+                newString.push(string[i]);
+                string.shift();
+                i++;
+                remove(string);
+                
+            } else {
+                string.shift()
+                remove(string);
+            }
+        }
+    }
+
+    remove(string);
+    return newString.join('');   
 }
 console.log(removeRepeatChars('aabcbcb'))
 console.log(removeRepeatChars('hhhddddhhhhdddhhhhddd'))
 console.log(removeRepeatChars('jajajaja!'))
-console.log(removeRepeatChars('perroverde'))  */
+console.log(removeRepeatChars('perroverde')) 

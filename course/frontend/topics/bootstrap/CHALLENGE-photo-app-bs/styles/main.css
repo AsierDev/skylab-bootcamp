@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url(../material/site_showcase_bg.jpg);
+}
+
+nav a {
+    color: #1CAA98!important;
+}
+
+h1,header h5 {
+    color: white;
+/*    text-align: center;*/
+    margin-bottom: 20px;
+    
+}
+
+
+#life {
+    color: #1CAA98;
+}
+
+#phoneHeader {
+    display: none;
+}
+
+header a {
+    margin-
+}

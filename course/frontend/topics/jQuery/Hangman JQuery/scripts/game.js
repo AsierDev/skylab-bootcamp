@@ -115,7 +115,7 @@ $(document).ready(function () {
 
                 }
             } else {
-                return 'GAME OVER.'
+                return 'GAME OVER.';
             }
 
 

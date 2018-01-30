@@ -35,7 +35,7 @@ function removeRepeatChars(str) {
     var newString = [];
     var i = 0;
     
-    function remove(str) {
+    (function remove(str) {
 
         while (string.length > 0) {
 
@@ -50,7 +50,7 @@ function removeRepeatChars(str) {
                 remove(string);
             }
         }
-    }
+    })
 
     remove(string);
     return newString.join('');   

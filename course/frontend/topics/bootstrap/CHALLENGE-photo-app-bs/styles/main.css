@@ -7,15 +7,16 @@ header {
     background-image: url(../material/site_showcase_bg.jpg);
 }
 
+header h5 {
+   line-height: 1.5em; 
+}
+
 nav a {
     color: #1CAA98!important;
 }
 
 h1,header h5 {
-    color: white;
-/*    text-align: center;*/
-    margin-bottom: 20px;
-    
+    color: white;   
 }
 
 
@@ -26,7 +27,7 @@ h1,header h5 {
 #phoneHeader {
     display: none;
 }
-
-header a {
-    margin-
+#features {
+    background: #1CAA98;
 }
+

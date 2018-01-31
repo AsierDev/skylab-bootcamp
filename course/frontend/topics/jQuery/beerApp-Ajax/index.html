@@ -15,25 +15,38 @@
 <body class="bg-dark">
     
     <div class="container d-flex flex-column align-items-center">
-            <h1 class="text-center display-1 text-info font-weight-bold">Beer Search </h1>
-       <form class="justify-content-center">
-            <input class="form-control-lg" type="text" name="" id="send">
-            <input class="btn-outline-warning rounded-top btn-lg" data-toggle="modal" data-target="#listOfBeers" type="submit" id="search">
+            <h1 class="text-center display-1 text-info font-weight-bold">Beer Finder</h1>
+       <form class="justify-content-center required">
+            <input class="form-control-lg rounded" type="text" name="" id="send" autofocus>
+            <input class="btn-outline-warning rounded-top btn-lg rounded"    type="submit" id="search">
        </form>
 
     </div>
 
-    <div id="listOfBeers" class="modal fade" role="dialog">
+    <!-- div for listed beers -->
+
+    <div id="listed" class="container d-flex flex-column align-items-center rounded">
+        <ul id="results" class="bg-light list-group rounded">
+        </ul>
+        
+    </div>
+
+    <!-- modal  -->
+
+     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
     
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"> </h4>
+                    <h4 class="modal-title mx-auto d-block"> </h4>
                 </div>
                 <div class="modal-body">
-                    <ul id="results">
-                    </ul>
+
+                    <figure id="description">
+                        
+                        
+                    </figure>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

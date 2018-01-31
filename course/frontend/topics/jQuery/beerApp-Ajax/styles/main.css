@@ -1,5 +1,5 @@
 form {
-    margin-top: 20%
+    margin-top: 10%
 }
 h1 {
     margin-bottom: 10%;
@@ -8,3 +8,30 @@ h1 {
 li {
     list-style: none;
 }
+
+#listed ul {
+    width: 400px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    text-align: center;
+    font-size: 1.2em
+}
+
+#listed ul li:hover {
+    background: #17A2B8;
+    cursor: pointer;
+
+}
+
+#listed a {
+    color: #343A40 !important;
+    display: block;
+    text-decoration: none;
+}
+
+#listed a:hover {
+    color: white !important;
+}
+
+
+

@@ -21,11 +21,19 @@ $(document).ready(function () {
     });
 
     function listResult(artists) {
+        
         $("#listArtists").empty();
-
+        console.log(artists)
         artists.forEach(function (artist) {
-            $("#listArtists").append('<div class="card col-4"><div class="card-body"><h5 class="card-title"><a href="#" id="artistListed" data-id="' + artist.id + '"  >' + artist.name + '</a></h5></div></div>')
+                
+            if (artist.images.length<1) {
+                $("#listArtists").append('<div class="col-md-6 col-sm-12 col-xl-3"><div class="card"><a href="#" id="artistListed" data-id="' + artist.id + '"  ><img class="card-img-top img-fluid img-responsive" src="http://vectorlogofree.com/wp-content/uploads/2014/03/49097-spotify-logo-icon-vector-icon-vector-eps.png" alt="artist picture"><div class="card-body"><h5 class="card-title">' + artist.name + '</h5></div></a></div></div>')
+            }
+
+            $("#listArtists").append('<div class="col-md-6 col-sm-12 col-xl-3"><div class="card"><a href="#" id="artistListed" data-id="' + artist.id + '"  ><img class="card-img-top img-fluid img-responsive" src="' + artist.images[0]["url"] + '" alt="artist picture"><div class="card-body"><h5 class="card-title">' + artist.name + '</h5></div></a></div></div>')
         });
+        
+
     };
 
 // ----  on artists click get artist's id, pass it to the api and show albums on html---///////    

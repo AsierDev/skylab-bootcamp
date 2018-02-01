@@ -1,0 +1,15 @@
+html,body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: black !important;
+}
+
+#search {
+  height: 20em; 
+}
+
+#albums, #songs {
+  height: 50em; 
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -24,7 +24,7 @@ $(document).ready(function () {
         $("#listArtists").empty();
 
         artists.forEach(function (artist) {
-            $("#listArtists").append('<div class="card col-4"><div class="card-body"><h5 class="card-title"><a href="#" id="artistListed" data-id="' + artist.id + '"  >' + artist.name + '</a></h5></div></div>')
+            $("#listArtists").append('<li class="list-group-item"><a href="#" id="artistListed" data-id="' + artist.id + '"  >' + artist.name + '</a></li>')
         });
     };
 

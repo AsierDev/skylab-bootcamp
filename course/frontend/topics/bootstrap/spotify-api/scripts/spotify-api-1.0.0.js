@@ -1,56 +1,104 @@
 /**
- * Beers API client.
- * 
+ * Spotify API client.
+ *
  * @version 1.0.0
  */
-var beersApi;
+var spotifyApi;
 (function () {
     "use strict";
 
-    function call(url, handleSuccess, handleError, timeout) {
+    function call(url, token, handleSuccess, handleError, timeout) {
         $.ajax({
             url: url,
+            headers: { Authorization: "Bearer " + token },
             timeout: timeout,
             success: handleSuccess,
             error: handleError
         });
     }
 
-    beersApi = {
-        baseUrl: "https://quiet-inlet-67115.herokuapp.com/api/",
+    spotifyApi = {
+        baseUrl: "https://api.spotify.com/v1/",
+
+        token:
+            "BQBOB7xdDQY4bBOCVOtpPzWBigvyUigC81N-1SqAV87HSzLgHcAUI8yCQj49-sbl5Np9X_M9UyNSadp5n8-s5k-Bv2pcPQmrbQb9rUWzJMQHW8JLgvlecBiwscAi8t1lKqMJ-k4",
 
         timeout: 2000,
 
         /**
-         * Searches beers by matching a text.
-         * 
+         * Searches artists by matching a text.
+         *
          * @param {String} query - The text to search.
          * @param {Function} handleResults - Handles the results.
          * @param {Function} handleError - Handles an error.
          */
-        search: function (query, handleResults, handleError) {
+        searchArtists: function (query, handleResults, handleError) {
             call(
-                this.baseUrl + "search/all?q=" + query,
-                handleResults,
+                this.baseUrl + "search?type=artist&q=" + query,
+                this.token,
+                function (results) {
+                    handleResults(results.artists.items);
+                },
                 handleError,
                 this.timeout
             );
         },
 
         /**
-         * Retrieves a beer detail by id.
-         * 
-         * @param {String} id - The id of the beer's details to retrieve.
-         * @param {Function} handleDetail - Handles the detail.
+         * Retrieve albums from an artist (by artist id).
+         *
+         * @param {String} artistId - The id of the artist to retrieve the albums from.
+         * @param {Function} handleResults - Handles the results.
          * @param {Function} handleError - Handles an error.
          */
-        retrieve: function (id, handleDetail, handleError) {
+        retrieveAlbums: function (artistId, handleResults, handleError) {
             call(
-                this.baseUrl + "beer/" + id,
-                handleDetail,
+                this.baseUrl + "artists/" + artistId + "/albums",
+                this.token,
+                function (results) {
+                    handleResults(results.items);
+                },
                 handleError,
                 this.timeout
             );
+        },
+
+        /**
+         * Retrieve tracks from an album (by album id).
+         *
+         * @param {String} albumId - The id of the album to retrieve the tracks from.
+         * @param {Function} handleResults - Handles the results.
+         * @param {Function} handleError - Handles an error.
+         */
+        retrieveTracks: function (albumId, handleResults, handleError) {
+            // TODO
+            call(
+                this.baseUrl + "albums/" + albumId + "/tracks",
+                    this.token,
+                    function (results) {
+                        handleResults(results.items);
+                    },
+                    handleError,
+                    this.timeout
+                )        
+        },
+
+        /**
+         * Get track from an album (by track id) to play it.
+         *
+         * @param {String} trackId - The id of the album to retrieve the tracks from.
+         * @param {Function} handleResults - Handles the results.
+         * @param {Function} handleError - Handles an error.
+         */
+        playTracks: function (trackId, handleResults, handleError) {
+            // TODO
+            call(
+                this.baseUrl + "tracks/" + trackId,
+                this.token,
+                handleResults,
+                handleError,
+                this.timeout
+            )
         }
     };
 })();

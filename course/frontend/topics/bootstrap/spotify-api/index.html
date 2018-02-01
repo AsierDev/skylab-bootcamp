@@ -17,16 +17,54 @@
    
    <main class="container-fluid">
         
-        <h2 class="flex-column text-center p-5">Encuentra tu artista favorito</h2>
+        <!-- <h2 class="flex-column text-center p-5">Encuentra tu artista favorito</h2> -->
         <div id="search" class="bg-secondary border-white rounded row">
-           <form class=" row justify-content-center col-12 ">
-               <input class="form-control form-control-lg mt-5 col-10 text-center text-uppercase font-weight-bold" type="text">
+           <form class=" row justify-content-center col-12">
+               <input class="form-control form-control-lg mt-5 col-10 text-center text-uppercase font-weight-bold" type="text" required autofocus>
                <input class="btn-success btn-block rounded my-4 py-3 col-6 col align-self-center"type="submit" value="Search">
            </form>
        </div>
-       <div id="albums" class="bg-secondary col-10 border-white rounded m-5 "></div>
-       <div id="songs" class="bg-secondary col-10 border-white rounded m-5 "></div>
-       <div id="player" class="bg-secondary col-10 border-white rounded m-5 "></div>
+       <section class="container">
+
+           <div id="listArtists" class="bg-secondary card-group">
+               
+           </div>
+
+           <div id="albums" class="bg-secondary ">
+                <ul id="listAlbums" class="list-group">
+                
+                </ul>
+           </div>
+
+            <div id="songs" class="bg-secondary ">
+                <ul id="listSongs" class="list-group">
+            
+                </ul>
+            </div>
+
+            <div class="modal fade" id="myPlayer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+       </section>
        
    </main>
    
@@ -37,6 +75,8 @@
     <script src="vendor\jquery\3.3.1\jquery-3.3.1.min.js"></script>
     <script src="vendor\pooper\popper.min.js"></script>
     <script src="vendor\bootstrap\4.0.0\js\bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts\spotify-api-1.0.0.js"></script>
 </body>
 
 </html>

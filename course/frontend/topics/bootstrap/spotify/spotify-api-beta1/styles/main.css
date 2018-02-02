@@ -1,0 +1,38 @@
+html,body {
+  margin: 0 !important;
+  padding: 0 !important;
+  /* background: black !important; */
+  
+  background: #16222A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+#search {
+  height: 20em; 
+}
+
+#albums, #songs {
+  height: 50em; 
+}
+
+/*# sourceMappingURL=main.css.map */
+
+
+.card-columns, .card {
+  display: inline-block ;
+  margin: 0 !important;
+  column-gap: 0 !important;
+}
+.card {
+  background: transparent !important;
+  border: none;
+  padding: 0 !important;
+}
+
+/* #listArtists,
+#listAlbums,
+#listSongs {
+  display: none;
+} */

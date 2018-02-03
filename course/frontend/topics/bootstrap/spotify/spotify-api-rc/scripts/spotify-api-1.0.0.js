@@ -21,7 +21,7 @@ var spotifyApi;
         baseUrl: "https://api.spotify.com/v1/",
 
         token:
-            "BQBN805vwZtnolQtxb7eXkCVcSdV2ZQF89hflEyQM9-cztLyEZ9l8vq6WVW2kZEXZNHmoBcMhPO9fLhC1GCbeCkrTb4-Ne4iT_Iby1jIR3O381BDv1UyXSHKXz_BJeMYwDdwb6Y",
+            "BQB7XX0KinxgT1asteihkt6DlxXaZTgpwmzHMs07mAgYfUFsPkJwJM7MxpJskte0CkruCunE7pcxgrJqnNc3UJ9uWtNLPJcLRr2X66JU6rQcRGSEg7tQs-lkg_bXXNw-ORkFYfk",
 
         timeout: 2000,
 

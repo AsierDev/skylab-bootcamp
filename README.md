@@ -14,7 +14,7 @@
 
 - [**Markdown =>**](https://markdown.es/) *Markdown’s syntax is intended for one purpose: to be used as a format for writing for the web.*
 
-- [**Git, GitFlow y Github =>**](course/Conceptos/git) *Git is a free and open source distributed version control system *
+- [**Git, GitFlow y Github =>**](course/Conceptos/git) *Git is a free and open source distributed version control system*
 
 - [**Jasmine =>**](https://jasmine.github.io/2.9/introduction) *TDD (*Test Driven Development*)*
 

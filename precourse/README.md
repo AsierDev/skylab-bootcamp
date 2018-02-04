@@ -10,7 +10,7 @@ La frase que me ha marcado mi camino durante este precurso, y que pretendo aplic
 ## ***Que he conseguido durante el precurso***
 
 - He conseguido familiarizarme con Github y con algo de Git. Incluso he subido mis primeros proyectos. [Puedes verlos aquí](https://github.com/AsierDev)
-![image](https://avatars0.githubusercontent.com/u/29598090?s=400&u=a6c2a6e2ab406a006687dac1f3523253081ac832&v=4)
+
 
 - Primer contacto con JavaScript, aprender la lógica, al menos en problemas sencillos. 
 ```javascript
@@ -18,7 +18,7 @@ var myData = {name: "Asier", age: 35};
  console.log(data)
 ```
 
-- Reforzar un poco mi conocimeinto de HTML. 
+- Reforzar un poco mi conocimiento de HTML. 
 ```html
 <h1> Esto es un título </h1>
 ```

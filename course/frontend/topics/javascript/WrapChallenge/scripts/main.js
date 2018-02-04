@@ -28,9 +28,23 @@ function text(source) {
 console.log(text('something').wrap('$').wrap('[', ']').wrap('{', '}').wrap('<', '>').wrap('#').toString());
 
 
-/*
-Crear algo que devuelva un output => text("something").wrap("%").wrap("[","]").wrap("&").indexOf("0")
-output ==> "&[%someting%]&1"
- */
+///////////////////////////////////////////////////////////////////////////////////////
 
+
+var text;
+(function () {
+    function wrap(text, before, after) {
+        return (before || '') + text + (after || before || '');
+    }
+
+    text = function (_text) {
+        var __text = new String(_text);
+
+        __text.wrap = function (before, after) {
+            return text(wrap(_text, before, after));
+        }
+
+        return __text;
+    }
+})();
  

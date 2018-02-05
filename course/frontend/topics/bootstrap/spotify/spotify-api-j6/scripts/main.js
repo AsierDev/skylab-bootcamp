@@ -37,7 +37,7 @@ $(document).ready(function () {
         artists.forEach(artist => {
 
             if (artist.images.length < 1) {
-                $("#listArtists").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="artistListed"  data-id="' + artist.id + '"  > <img class="card-img-top img-fluid" src="https://pixabay.com/get/eb32b40f20fd033ed1584d05fb0938c9bd22ffd41cb0164792f3c17ea3/singing-2750892_1280.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Albums</span></div></div></a></div></div>');
+                $("#listArtists").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="artistListed"  data-id="' + artist.id + '"  > <img class="card-img-top img-fluid" src="img/noImage.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Albums</span></div></div></a></div></div>');
             
             } else {
 
@@ -81,7 +81,7 @@ $(document).ready(function () {
 
             if (album.images.length < 1) {
 
-                $("#listAlbums").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="albumListed" data-name="' + album.name + '" data-id="' + album.id + '"  > <img class="card-img-top img-fluid" src="https://cdn.pixabay.com/photo/2016/02/19/11/36/microphone-1209816_640.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Tracks</span></div></div></a></div></div>')
+                $("#listAlbums").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="albumListed" data-name="' + album.name + '" data-id="' + album.id + '"  > <img class="card-img-top img-fluid" src="img/noImage.jpg" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + artist.name + '</h5><span class="info">Show Tracks</span></div></div></a></div></div>')
             } else {
 
                 $("#listAlbums").append('<div class="card col"><div class="hovereffect"><a href="#" class="text-center font-weight-bold text-light" id="albumListed" data-img="' + album.images[0].url + '" data-name="' + album.name + '" data-id="' + album.id + '"  > <img class="card-img-top img-fluid" src="' + album.images[0].url + '" alt="artist picture"><div class="card-body overlay"><h5 class="card-title">' + album.name + '</h5><span class="info">Show Tracks</span></div></div></a></div></div>')
@@ -98,7 +98,7 @@ $(document).ready(function () {
     $(document).on('click', '#albumListed', function (e) {
         e.preventDefault()
 
-        // get album cover and name to decoarte modal background and tittle
+        // get album cover and name to decorate modal background and tittle
 
         const albumId = $(this).attr("data-id")
         const albumImage = $(this).attr("data-img")
@@ -139,9 +139,9 @@ $(document).ready(function () {
 
     //  if modal is closed or hidden, music stops   
 
-    $('#myPlayer').on('hidden.bs.modal', function () {
+     $('#myPlayer').on('hidden.bs.modal', function () {
 
-        $('#audioPlayer').get(0).pause()
-    })
+        $('audio').get(0).pause()
+    }) 
 
 })

@@ -7,24 +7,24 @@
 
 
 let spotifyApi;
+
 (function () {
     "use strict";
 
-
-    
     function call(url, token, handleSuccess, handleError, timeout) {
         
         const headers = { Authorization: 'Bearer ' + token }
+
         fetch(url , { headers })
 
             .then(res => res.json())
-            .then(data => handleSuccess(data))
-            .catch(err => handleError(err))
+            .then(handleSuccess)
+            .catch(handleError)
     }
 
     spotifyApi = {
         baseUrl: "https://api.spotify.com/v1/",
-        token: 'BQD5FkroFmek9HI1y7TOGFmp35zeYWlHqZ5mrCEDv1lo-Lky6I8_DDqcNfEZP8KnBP92iLehq4GMUMbo4hdh82SRQB5vtV-simMt2ibL41k7W7vMOjQSs7cd-0rsINYMvmFMnqA',
+        token: 'BQAZCJ00Z2S1fOC_e2vVmhAdzZiTucNs2qoVM7RlattrylVX8skGUGNEfYz5T_zFDEAccMihcnJlQgJgxPwYKMyzY5-dgsRFaCmMK-uxKdpTP1PzYZO5JQ-VhPepGNysn4prYiA',
         timeout: 2000,
 
         /**
@@ -38,9 +38,9 @@ let spotifyApi;
             call(
                 this.baseUrl + "search?type=artist&q=" + query,
                 this.token,
-                function (results) {
-                    handleResults(results.artists.items);
-                },
+               
+                results => handleResults(results.artists.items),
+               
                 handleError,
                 this.timeout
             );
@@ -57,9 +57,7 @@ let spotifyApi;
             call(
                 this.baseUrl + "artists/" + artistId + "/albums",
                 this.token,
-                function (results) {
-                    handleResults(results.items);
-                },
+                results => handleResults(results.items),
                 handleError,
                 this.timeout
             );
@@ -77,9 +75,7 @@ let spotifyApi;
             call(
                 this.baseUrl + "albums/" + albumId + "/tracks",
                     this.token,
-                    function (results) {
-                        handleResults(results.items);
-                    },
+                results => handleResults(results.items),
                     handleError,
                     this.timeout
                 )        

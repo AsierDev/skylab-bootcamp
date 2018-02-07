@@ -1,0 +1,43 @@
+* {
+    font-family: Courier New, Courier, monospace;
+    font-size: 16px;
+}
+
+
+
+.round-red-button {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+    padding: 10px;
+    margin-left: 250px
+    
+
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.display {
+    width: 100px;
+    height: 100px;
+    background: wheat;
+    margin-left: 100px;
+}
+
+.multiply {
+    width: 400px;
+    height: 200px;
+    background: red;
+    display: inline-block;
+}
+
+.divide {
+    width: 400px;
+    height: 200px;
+    background: blue;
+    display: inline-block;
+}

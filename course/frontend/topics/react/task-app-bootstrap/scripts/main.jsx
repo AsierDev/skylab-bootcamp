@@ -27,14 +27,14 @@ class TaskApp extends React.Component {
 
     checkTask = id => {
 
-        this.setState(prevState => {
+        this.setState(prevState => ({
             tasks: prevState.tasks.map(task => {
                 if (task.id === id)
                     task.done = true
 
                 return task
             })
-        })
+        }))
     }
 
     checkAllTasks = () => {

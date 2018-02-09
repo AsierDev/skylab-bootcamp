@@ -7,9 +7,7 @@ class OperateNumber extends React.Component {
     }
 
     addOne() {
-        this.setState(prevState => {
-            return { count:  prevState.count + 1 }
-        });
+        this.setState(prevState => ({ count:  prevState.count + 1 }));
     }
 
                                           

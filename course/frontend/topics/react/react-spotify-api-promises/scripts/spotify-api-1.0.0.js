@@ -9,7 +9,7 @@ let spotifyApi;
 (function () {
     "use strict";
     const baseUrl = "https://api.spotify.com/v1/"
-    const token = 'BQC4EzFy0Z5y23zDZTzG7RAYgeTUctFGr5pZQ4YBiHSGPL6GsJJ--uaW2Z81fPjDOO5nIwaRDn2IcumhvfQzWrokPx06vOhpw4Z5RUArphzz9R9JXANIH0PLSkuUSeLmujVtHLc'
+    const token = 'BQClbPCAw68tkDqPlpvIRnPMQxOaFf354KJGfJG6zEX-ZP98tPu2P7cAbkLuY7DPb22pD7PcWjrht4grdM_6IDvmAeTJg4mFNSAsRr8vewpOCRzoU91cfzXjANCWvY2Tw2Bu2U0'
     const headers = { Authorization: 'Bearer ' + token }
 
     

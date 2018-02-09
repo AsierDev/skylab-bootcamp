@@ -32,7 +32,6 @@ img {
     border-radius: 50%;
     border: dotted 4px black;
     filter: grayscale();
-    
 }
 
 #triangle-up {

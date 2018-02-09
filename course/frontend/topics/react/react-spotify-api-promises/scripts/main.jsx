@@ -1,5 +1,8 @@
 'use strict'
 
+// https://stackoverflow.com/questions/24502898/show-or-hide-element
+
+
 class SpotyApp extends React.Component {
     constructor() {
         super()
@@ -37,9 +40,34 @@ class SpotyApp extends React.Component {
             .catch(err => console.error("err -->", err))
     }
 
-    fetchAlbums = artistID => {
+    fetchAlbums = artistId => {
+        
+        spotifyApi.retrieveAlbums(artistId)
+        .then((listOfAlbums) => {
+            let images = this.fixResultsWithoutPictures(listOfAlbums)
+            this.setState({
+                albums: images
+            })
+        })
+        .catch(err => console.error("err -->", err))
+        
+    }
+
+    fetchTracks = albumId => {
+
+        console.log(albumId)
+
+        spotifyApi.retrieveTracks(albumId)
+            .then((listOfSongs) => {
+                this.setState({
+                    songs: listOfSongs
+                })
+            })
+            .catch(err => console.error("err -->", err))
 
     }
+        
+    
 
 
     render() {
@@ -55,11 +83,12 @@ class SpotyApp extends React.Component {
 
                     <section className="container-fluid col-12">
 
-                        <ListArtists onFetchArtists={this.fetchArtists} artists={this.state.artists} />
+                        <ListArtists onFetchArtists={this.fetchArtists} artists={this.state.artists} onClickArtist={this.fetchAlbums}/>
 
+                        <ListAlbums onFetchAlbums={this.fetchAlbums} albums={this.state.albums} onClickAlbum={this.fetchTracks}/>
+                        
 
-                        <div id="listAlbums" className=" card-columns">
-                        </div>
+                       
                         <div id="listSongs" className=" card-columns">
                         </div>
                         <div id="error">
@@ -109,8 +138,6 @@ class SearchInput extends React.Component {
     }
 
 
-
-
     render() {
 
         return (
@@ -130,22 +157,22 @@ class SearchInput extends React.Component {
 
 class ListArtists extends React.Component {
 
+    sendArtist = (artistId) => {
+        this.props.onClickArtist(artistId)
+      
+    }    
     
     render() {
         
         const artists = this.props.artists
-        
-        console.log(this.props.artists)
-
-        
-        
+               
         return (
 
             <div id="listArtists" className=" card-columns">
                 
                 {artists.map(artist => 
                 
-                <div className="card col" key={artist.id} onClick>
+                    <div className="card col" key={artist.id} onClick={e => { e.preventDefault(); this.sendArtist(artist.id)}} > 
                 
                 <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="artistListed" > <img className="card-img-top img-fluid" src={artist.images[0].url}  alt="artist picture" /><div className="card-body overlay"><h5 className="card-title"> {artist.name} </h5><span className="info">Show Albums</span></div></a></div></div>
 
@@ -153,6 +180,37 @@ class ListArtists extends React.Component {
             )}
     
     
+            </div>
+        )
+    }
+
+
+}
+
+class ListAlbums extends React.Component {
+
+    sendAlbum = (albumId) => {
+        this.props.onClickAlbum(albumId)
+    }
+
+    render() {
+
+        const albums = this.props.albums
+
+        return (
+
+            <div id="listAlbums" className=" card-columns">
+
+                {albums.map(album =>
+
+                    <div className="card col" key={album.id} onClick={e => { e.preventDefault(); this.sendAlbum(album.id) }} >
+
+                        <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="albumListed" > <img className="card-img-top img-fluid" src={album.images[0].url} alt="album picture" /><div className="card-body overlay"><h5 className="card-title"> {album.name} </h5><span className="info">Show Tracks</span></div></a></div></div>
+
+
+                )}
+
+
             </div>
         )
     }

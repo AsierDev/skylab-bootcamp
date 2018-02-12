@@ -79,7 +79,8 @@ html, body {
   font-weight: bold; }
 
 #player {
-  background: #191414; }
+  background: #191414;
+  width: 100px; }
 
 #audioPlayer {
   width: 100px; }

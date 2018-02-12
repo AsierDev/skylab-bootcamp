@@ -8,12 +8,16 @@ class SpotyApp extends React.Component {
         super()
         this.state = {
             artists: [],
+            showArtists: true,
             albums: [],
-            songs: []
+            showAlbums: false,
+            songs: [],
+            showSongs: false,
+            songId: []
         }
     }
 
-
+    // check the results and look up for deafult pictures. 
 
     fixResultsWithoutPictures(sourceData) {
         for (let i = 0; i < sourceData.length; i++) {
@@ -27,9 +31,22 @@ class SpotyApp extends React.Component {
         return sourceData;
     }
 
+    // click on "back to artists" button
+
+    goBack = () => {
+        this.setState({ showArtists: true })
+        this.setState({ showAlbums: false })
+        this.setState({ showSongs: false })
+
+    }
 
 
     fetchArtists = (query) => {
+
+        this.setState({ showArtists: true })
+        this.setState({ showAlbums: false })
+        this.setState({ showSongs: false })
+
         spotifyApi.searchArtists(query)
             .then((listOfArtists) => {
                 let images = this.fixResultsWithoutPictures(listOfArtists)
@@ -41,33 +58,55 @@ class SpotyApp extends React.Component {
     }
 
     fetchAlbums = artistId => {
-        
+
+        this.setState({ showArtists: false })
+        this.setState({ showAlbums: true })
+
         spotifyApi.retrieveAlbums(artistId)
-        .then((listOfAlbums) => {
-            let images = this.fixResultsWithoutPictures(listOfAlbums)
-            this.setState({
-                albums: images
+            .then((listOfAlbums) => {
+                let images = this.fixResultsWithoutPictures(listOfAlbums)
+                this.setState({
+                    albums: images
+
+                })
+
             })
-        })
-        .catch(err => console.error("err -->", err))
-        
+            .catch(err => console.error("err -->", err))
+
     }
 
     fetchTracks = albumId => {
 
-        console.log(albumId)
+
+        this.setState({ showSongs: true })
 
         spotifyApi.retrieveTracks(albumId)
             .then((listOfSongs) => {
                 this.setState({
                     songs: listOfSongs
+
                 })
+
             })
             .catch(err => console.error("err -->", err))
 
     }
-        
-    
+
+    playSong = songId => {
+
+        spotifyApi.playTracks(songId)
+            .then((track) => {
+                this.setState({
+                    songId: track
+
+                })
+
+            })
+            .catch(err => console.error("err -->", err))
+
+    }
+
+
 
 
     render() {
@@ -79,32 +118,19 @@ class SpotyApp extends React.Component {
                 </nav>
                 <main className="container-fluid">
 
-                    <SearchInput onSubmit={this.fetchArtists} />
+                    <SearchInput onSubmit={this.fetchArtists} onClickGoBack={this.goBack} />
 
                     <section className="container-fluid col-12">
 
-                        <ListArtists onFetchArtists={this.fetchArtists} artists={this.state.artists} onClickArtist={this.fetchAlbums}/>
+                        {this.state.showArtists ?
+                            <ListArtists onFetchArtists={this.fetchArtists} artists={this.state.artists} onClickArtist={this.fetchAlbums} /> : null}
 
-                        <ListAlbums onFetchAlbums={this.fetchAlbums} albums={this.state.albums} onClickAlbum={this.fetchTracks}/>
-                        
+                        {this.state.showAlbums ?
+                            <ListAlbums onFetchAlbums={this.fetchAlbums} albums={this.state.albums} onClickAlbum={this.fetchTracks} /> : null}
 
-                       
-                        <div id="listSongs" className=" card-columns">
-                        </div>
-                        <div id="error">
-                        </div>
-                        <div className="modal fade" id="myPlayer" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div className="modal-dialog modal-dialog-centered" role="document">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title text-center" data-dismiss="modal" id="exampleModalLongTitle" />
-                                    </div>
-                                    <div id="player" className="d-flex justify-content-center" />
-                                    <div className="modal-body">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {this.state.showSongs ?
+                            <ListSongs onFetchSongs={this.fetchTracks} songs={this.state.songs} onClickSong={this.playSong} songId={this.state.songId} /> : null}
+
                     </section>
                 </main>
             </div>
@@ -137,6 +163,10 @@ class SearchInput extends React.Component {
         this.setState({ query: '' })
     }
 
+    goBack = () => {
+        this.props.onClickGoBack()
+    }
+
 
     render() {
 
@@ -148,44 +178,43 @@ class SearchInput extends React.Component {
 
                     <input className="btn-success btn-block rounded my-4 py-3 col-6 col align-self-center button" type="submit" defaultValue="Search" />
                 </form>
-                <button type="button" id="backToArtists" className="btn btn-success mx-auto rounded mb-3 button">Back to artists</button>
+
+                <button onClick={e => { e.preventDefault(); this.goBack() }} type="button" id="backToArtists" className="btn btn-success mx-auto rounded mb-3 button">Back to artists</button>
             </div>
         )
     }
 
 }
+
 
 class ListArtists extends React.Component {
 
+
     sendArtist = (artistId) => {
         this.props.onClickArtist(artistId)
-      
-    }    
-    
+
+    }
+
     render() {
-        
+
         const artists = this.props.artists
-               
+
+
         return (
 
             <div id="listArtists" className=" card-columns">
-                
-                {artists.map(artist => 
-                
-                    <div className="card col" key={artist.id} onClick={e => { e.preventDefault(); this.sendArtist(artist.id)}} > 
-                
-                <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="artistListed" > <img className="card-img-top img-fluid" src={artist.images[0].url}  alt="artist picture" /><div className="card-body overlay"><h5 className="card-title"> {artist.name} </h5><span className="info">Show Albums</span></div></a></div></div>
 
+                {artists.map(artist =>
 
-            )}
-    
-    
+                    <div className="card col" key={artist.id} onClick={e => { e.preventDefault(); this.sendArtist(artist.id) }} >
+
+                        <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="artistListed" > <img className="card-img-top img-fluid" src={artist.images[0].url} alt="artist picture" /><div className="card-body overlay"><h5 className="card-title"> {artist.name} </h5><span className="info">Show Albums</span></div></a></div></div>)}
             </div>
         )
     }
 
-
 }
+
 
 class ListAlbums extends React.Component {
 
@@ -197,19 +226,17 @@ class ListAlbums extends React.Component {
 
         const albums = this.props.albums
 
+
         return (
 
             <div id="listAlbums" className=" card-columns">
 
                 {albums.map(album =>
 
+
                     <div className="card col" key={album.id} onClick={e => { e.preventDefault(); this.sendAlbum(album.id) }} >
 
-                        <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="albumListed" > <img className="card-img-top img-fluid" src={album.images[0].url} alt="album picture" /><div className="card-body overlay"><h5 className="card-title"> {album.name} </h5><span className="info">Show Tracks</span></div></a></div></div>
-
-
-                )}
-
+                        <div className="hovereffect"><a href="#" className="text-center font-weight-bold text-light" id="albumListed" > <img className="card-img-top img-fluid" src={album.images[0].url} alt="album picture" /><div className="card-body overlay"><h5 className="card-title"> {album.name} </h5><span className="info">Show Tracks</span></div></a></div></div>)}
 
             </div>
         )
@@ -218,6 +245,66 @@ class ListAlbums extends React.Component {
 
 }
 
+
+class ListSongs extends React.Component {
+
+    constructor() {
+        super()
+
+        this.state = {
+            showModal: true
+        }
+    }
+
+
+    sendSong = (songId) => {
+        this.props.onClickSong(songId)
+    }
+
+    render() {
+
+        $('#myPlayer').modal("show")
+        $('#myPlayer').on('hidden.bs.modal', function () {
+            $('audio').get(0).pause()
+        })
+
+        const songs = this.props.songs
+
+        let playTrack = this.props.songId.preview_url
+
+
+        return (
+
+            <div className="modal fade" id="myPlayer" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title text-center" data-dismiss="modal" id="exampleModalLongTitle" />
+
+                            <audio id="player" className="d-flex justify-content-center" ref="audio_tag" src={playTrack} controls autoPlay>
+                            </audio>
+                        </div>
+                        <div id="player" className="d-flex justify-content-center" />
+
+
+                        <div className="modal-body">
+                            {songs.map(song =>
+                                <li className="list-group-item" key={song.id} onClick={e => { e.preventDefault(); this.sendSong(song.id) }}>
+                                    <span href="#" id="songListed" >{song.name}</span></li>
+
+                            )}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        )
+    }
+
+}
 
 
 

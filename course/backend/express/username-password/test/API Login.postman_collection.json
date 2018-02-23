@@ -1,0 +1,118 @@
+{
+	"info": {
+		"name": "API Login",
+		"_postman_id": "98c04f48-4f21-f0ec-9b6d-97bb340c6213",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"pedro\",\n\t\"password\": \"perro\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4422/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4422",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "add users "
+			},
+			"response": []
+		},
+		{
+			"name": "GET users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4422/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4422",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Get users from database"
+			},
+			"response": []
+		},
+		{
+			"name": "CHANGE password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"pedro\",\n\t\"oldPassword\": \"perro\",\n\t\"newPassword\": \"gatos\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4422/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4422",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Change password   for a user"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"pedro\",\n\t\"password\": \"perro\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4422/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4422",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Remove a particular user introducing the right password\t"
+			},
+			"response": []
+		}
+	]
+}

@@ -65,8 +65,8 @@ app.delete('/api/users', jsonBodyParser, (req, res) => {
             if (username === user.username && user.password === password) {
                 users = users.filter(_user => _user !== user)
 
-                return res.json("user borrado")
             }
+            return res.json("user borrado")
         })
 
         users.map(user => {
@@ -119,48 +119,3 @@ app.listen(port, () => console.log(`Users API running on port ${port}`))
 
 
 
-
-
-
-
-
-
-/* const express = require('express')
-const bodyParser = require('body-parser')
-
-const app = express()
-let usersArray = []
-
-app.use(bodyParser({urlencoded: false}))
-
-app.post(('/api/users'), (req,res) => {
-    
-    const user = {
-        username: req.body.username,
-        password: req.body.password
-    }
-
-    
-    if (usersArray > 0 && !usersArray.username.includes(user.username)) {
-
-        let reply = {
-            status: "ok",
-            message: 'user registered sucessfully'
-        } 
-        
-        usersArray = [...usersArray, user]
-        res.json(reply)
-        
-
-    }
-
-
-    console.log(usersArray)
-    
-})
-
-
-
-const port = process.argv[2]
-
-app.listen(port, () => console.log(`Server running on port ${port}`)) */

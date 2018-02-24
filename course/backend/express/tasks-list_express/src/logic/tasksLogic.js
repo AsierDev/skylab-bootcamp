@@ -24,7 +24,12 @@ const tasksLogic = {
         
     },
 
+    /* /// Mark task as done  ///  */
+
+
     markDone(id) {
+        
+        tasksData.markDone(id)
 
     },
 

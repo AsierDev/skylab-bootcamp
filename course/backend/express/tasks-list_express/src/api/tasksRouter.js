@@ -30,7 +30,7 @@ router.get('/tasks', (req, res) => res.json(success("Tasks listed correctly", ta
 
 /*  /// Remove task from tasklist */
 
-router.delete('/task/:id', jsonBodyParser, (req, res) => {
+router.delete('/task/:id', (req, res) => {
     const { params: { id } } = req
     
         tasksLogic.remove(id)
@@ -47,6 +47,16 @@ router.delete('/tasks', (req, res) => {
     res.json(success('Tasks removed correctly'))
 
 })
+
+/* /// Mark task as done  ///  */
+
+router.put('/task/:id', (req, res) => {
+    const { params: { id } } = req
+
+    tasksLogic.markDone(id)
+
+    res.json(success('Task marked as done'))
+} )
 
 
 

@@ -16,7 +16,7 @@ const tasksData = {
     list() { return tasks },
 
     retrieve(id) {
-
+        const task = tasks.find(task => task.taskId === id)
     },
 
     update(id, text, done) {
@@ -29,7 +29,6 @@ const tasksData = {
         const index  = tasks.findIndex(x => x.taskId === Number(id))
 
         if (index < 0) throw Error ('task does not exist.')
-
         
         tasks.splice(index, 1)
     },
@@ -38,8 +37,21 @@ const tasksData = {
 
     deleteAll() {
 
-        tasks = [] 
-        // tasks.splice(0, tasks.length)
+        tasks.splice(0, tasks.length)
+
+    },
+
+    /* /// Mark task as done  ///  */
+
+    markDone(id) {
+        const index = tasks.findIndex(x => x.taskId === Number(id))
+
+        if (index < 0) throw Error('task does not exist.')
+
+        if (tasks[index].done === true) throw Error('Task is already done')
+
+        tasks[index].done = true
+        
     }
 }
 

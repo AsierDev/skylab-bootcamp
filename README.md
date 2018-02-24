@@ -105,3 +105,50 @@
 -[API BeerApp](https://github.com/AsierDev/skylab-bootcamp/tree/master/course/frontend/topics/jQuery/beerApp-Ajax)
 - [Challenge Photo App clone](https://github.com/AsierDev/skylab-bootcamp/tree/master/course/frontend/topics/bootstrap/CHALLENGE-photo-app-bs)
 - [API Spotify client](https://github.com/AsierDev/skylab-bootcamp/tree/master/course/frontend/topics/bootstrap/spotify)   
+
+
+## Week 4
+
+### [**React**](course/Conceptos/react/README.md) 
+*Biblioteca Javascript de código abierto para crear interfaces de usuario con el objetivo de animar al desarrollo de aplicaciones en una sola página*
+
+- [**JSX =>**](https://jsx.github.io/) *Is a statically-typed, object-oriented programming language designed to run on modern web browsers*
+
+- [**Babel =>**](https://babeljs.io/) *Herramienta que nos permite transformar nuestro código JS de última generación (en este caso JSX) a JS que cualquier navegador o versión de Node.js entienda.*
+
+- [**React Dev Tools =>**](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) *Tool that allows you to inspect a React tree, including the component hierarchy, props, state, and more*
+
+- [**Create-React-App =>**](https://github.com/facebook/create-react-app) *Offers a modern build setup with no extra configuration needed.* 
+
+- [**React Router =>**](https://github.com/ReactTraining/react-router) *React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought*
+
+- [**withRouter =>**](course/Conceptos/react/WithRouter.md) *You can get access to the history object's properties.withRouter withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.*
+
+
+### Challenges Week 4 
+
+- [**React simple App Multiply an Divide**](course/frontend/topics/react/react-mult-divide)
+
+- [**ReactApp To Do list**]()
+    - [reactapp-todolist](course/frontend/topics/react/reactapp-todolist)
+    - [react-task-list-done](course/frontend/topics/react/react-task-list-done)
+    - [react-task-app-bootstrap](course/frontend/topics/react/react-task-app-bootstrap)
+
+- [**Beers Api with react-router**](course/frontend/topics/react/beers-react-router)
+
+- [**Spotify with React**](course/frontend/topics/react/react-mult-divide)
+
+- [**Navbar Bootstrap and react-router**](course/frontend/topics/react/navbar-bootstrap-react-router)
+
+
+
+## Week 5
+
+### Proyecto Front End en grupo
+
+Durante una semana [Alexandra](https://github.com/alexadark) y yo  trabajamos en un proyecto aplicando todo lo aprendido durante las 4 semanas anteriores.
+Realizamos un buscador de restaurantes, usando **React**, **uikit** y trabajando con la **API de Google Places**
+
+Se puede ver el resultado en el [skyplaces](https://skyplaces.surge.sh/#/restaurants-around-you) o comprobar el código en nuestro [repositorio del proyecto](https://github.com/AsierDev/project-skyplaces).
+
+Se puede ver los proyectos del resto de compañeros [aquí](course/Conceptos/group-projects/README.md)  

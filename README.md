@@ -151,4 +151,4 @@ Realizamos un buscador de restaurantes, usando **React**, **uikit** y trabajando
 
 Se puede ver el resultado en el [skyplaces](https://skyplaces.surge.sh/#/restaurants-around-you) o comprobar el código en nuestro [repositorio del proyecto](https://github.com/AsierDev/project-skyplaces).
 
-Se puede ver los proyectos del resto de compañeros [aquí](course/Conceptos/group-projects/README.md)  
+Se pueden ver los proyectos del resto de compañeros [aquí](course/Conceptos/group-projects/README.md)  

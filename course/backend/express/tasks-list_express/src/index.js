@@ -8,7 +8,7 @@ require('dotenv').config()
 
 const express = require('express')
 
-const tasksRouter = require('./src/api/tasksRouter')
+const tasksRouter = require('./api/tasksRouter')
 
 const app = express()
 

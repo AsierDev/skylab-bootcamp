@@ -1,14 +1,21 @@
 const tasks = []
 
+const users = []
+
 let taskId = 0
 
 const tasksData = {
 
     /* /// create task /// */
 
-    create(text) {
+    create(text, username) {
+        
+        if (!users.includes(username)) {
+            users.push(username)
+        }
+
         taskId += 1
-        tasks.push({ taskId, text, done: false })
+        tasks.push({ taskId, text, username, done: false })
     },
 
     /* /// List every task /// */
@@ -16,7 +23,7 @@ const tasksData = {
     list() {
         if (tasks.length < 1) throw Error('There are no tasks to show')
 
-        return tasks 
+        return tasks
     },
 
     retrieve(id) {
@@ -25,14 +32,6 @@ const tasksData = {
         if (task) return task
 
         throw Error('Task does not exist.')
-    },
-
-    /* /// Update task /// */
-
-    update(id, text) {
-        const task = this.retrieve(id)
-
-        task.text = text
     },
 
     /*  /// Remove task from tasklist */
@@ -71,7 +70,6 @@ const tasksData = {
     listToDo() {
         const todoList = []
 
-
         for (let i = 0; i < tasks.length; i++) {
 
             if (tasks[i].done === false) todoList.push(tasks[i])
@@ -98,6 +96,53 @@ const tasksData = {
         return doneList
     },
 
+    /* /// Update task /// */
+
+    update(id, text, username) {
+        const task = this.retrieve(id)
+
+        // check if username already exist. if not, add it to the userList.
+        if (!users.includes(username)) {
+            users.push(username)
+        }
+
+        if (username && text) {
+
+            task.text = text
+            task.username = username 
+
+        } else if (username && !text) {
+            task.username = username 
+
+        } else if (text && !username) {
+
+            task.text = text
+        }
+
+    },
+
+    /* /// List tasks per user /// */
+
+    userTasks(username) {
+        const userList = []
+
+        for (let i = 0; i < tasks.length; i++) {
+
+            if (tasks[i].username === username) userList.push(tasks[i])
+        }
+
+        if (userList < 1 || tasks.length < 1) throw Error('There are no tasks to show')
+
+        return userList
+    },
+
+    /*  /// List all the users /// */
+
+    listUsers() {
+        if (users.length < 1) throw Error('There are no users to show')
+
+        return users
+    }
 
 
 }

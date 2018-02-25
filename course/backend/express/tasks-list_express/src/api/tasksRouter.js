@@ -58,7 +58,27 @@ router.put('/task/:id', (req, res) => {
     res.json(success('Task marked as done'))
 } )
 
+/* /// List tasks pending to do /// */
 
+router.get('/tasks/todo', (req, res) => {
+    res.json(success('Tasks left to do listed correctly', tasksLogic.listToDo()))
+})
 
+/* /// List tasks already done /// */
+
+router.get('/tasks/done', (req, res) => {
+    res.json(success('Tasks done listed correctly', tasksLogic.listDone()))
+})
+
+/* /// Update task /// */
+
+router.patch('/task/:id', jsonBodyParser, (req, res) => {
+    const { params: { id } } = req
+    const { text } = req.body
+
+    tasksLogic.update(id, text)
+
+    res.json(success('Task updated correctly'))
+})
 
 module.exports = router

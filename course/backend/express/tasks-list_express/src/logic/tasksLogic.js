@@ -26,26 +26,29 @@ const tasksLogic = {
 
     /* /// Mark task as done  ///  */
 
-
     markDone(id) {
         
         tasksData.markDone(id)
 
     },
 
-    /*  /// Remove task from tasklist */
+    /* /// Remove task from tasklist */
 
     remove(id) {
 
         tasksData.delete(id)
     },
 
-    listDone() {
+    /* /// List tasks already done /// */
 
+    listDone() {
+       return tasksData.listDone()
     },
 
-    listToDo() {
+    /* /// List tasks pending to do /// */
 
+    listToDo() {
+       return tasksData.listToDo()
     },
 
     /* ///  Delete all tasks  /// */
@@ -54,8 +57,12 @@ const tasksLogic = {
         tasksData.deleteAll()
     },
 
-    update(id, text) {
+    /* /// Update task /// */
 
+    update(id, text) {
+        // const task = tasksData.retrieve(id)
+
+        tasksData.update(id, text)
     }
 
 

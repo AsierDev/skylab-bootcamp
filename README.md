@@ -6,6 +6,9 @@
 
 ![Image](course/Conceptos/Inkedtimeline_LI.jpg)
 
+
+# FRONTEND
+
 ## Week 1
 
 - [**CLI =>**](course/Conceptos/cli/README.md) *A command-line interface or command language interpreter* 
@@ -56,8 +59,6 @@
 - [**JQuery =>**](course/Conceptos/$) *jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.*
 
 - [**Ajax (*Asynchronous JavaScript And XML*) =>**](course/Conceptos/ajax) *a set of Web development techniques using many Web technologies on the client side to create asynchronous Web applications*
-
-- [**Node.js =>**](https://nodejs.org/en/) *Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.*
 
 
 ### Challenges Week 2
@@ -152,3 +153,43 @@ Realizamos un buscador de restaurantes, usando **React**, **uikit** y trabajando
 Se puede ver el resultado en el [skyplaces](https://skyplaces.surge.sh/#/restaurants-around-you) o comprobar el código en nuestro [repositorio del proyecto](https://github.com/AsierDev/project-skyplaces).
 
 Se pueden ver los proyectos del resto de compañeros [aquí](course/Conceptos/group-projects/README.md)  
+
+
+
+# BACKEND
+
+## Week 6
+
+- [**Node.js =>**](https://nodejs.org/en/) *Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.*
+
+- [**Devtool =>**](https://www.npmjs.com/package/devtool) *Allows you to profile, debug and develop typical Node.js programs with some of the features of Chrome DevTools*
+
+- [**CRUD =>**](https://www.codecademy.com/articles/what-is-crud) *Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.*
+
+- [**Nodemon =>**](https://nodemon.io/) *Utility that will monitor for any changes in your source and automatically restart your server*
+
+- [**Lodash =>**](https://lodash.com/) *A modern JavaScript utility library delivering modularity, performance & extras.*
+
+- [**Dotenv =>**](https://www.npmjs.com/package/dotenv) *Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code*
+
+- [**Express =>**](http://expressjs.com/) *A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*
+
+
+
+### Challenges Week 6
+
+- [**Simple copy-paste =>**](course/backend/nodejs/cp-node)
+
+- [**Series of exercises learnyounode =>**](course/backend/nodejs/landing)
+
+- [**Streams Transform =>**](course/backend/nodejs/transform)
+
+- [**Client-Server chat =>**](ourse/backend/nodejs/tcp-client-server-chat)
+
+- [**Firs steps =>**](course/backend/express/landing)
+
+- [**Staff api =>**](course/backend/express/staff.api/staff-api-pro)
+
+- [**Simple login api =>**](course/backend/express/users-api)
+
+- [**Task list api =>**](course/backend/express/tasks-list_express)

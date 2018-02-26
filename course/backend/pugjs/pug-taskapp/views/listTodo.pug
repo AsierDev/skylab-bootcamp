@@ -1,0 +1,11 @@
+extends base.pug
+
+block content
+ include index.pug
+  h1 To-Do list
+  ul 
+   each task in tasks
+    li=task.text
+
+
+

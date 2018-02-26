@@ -145,7 +145,7 @@
 
 ## Week 5
 
-### Proyecto Front End en grupo
+### Proyecto Frontend en grupo
 
 Durante una semana [Alexandra](https://github.com/alexadark) y yo  trabajamos en un proyecto aplicando todo lo aprendido durante las 4 semanas anteriores.
 Realizamos un buscador de restaurantes, usando **React**, **uikit** y trabajando con la **API de Google Places**
@@ -160,36 +160,36 @@ Se pueden ver los proyectos del resto de compañeros [aquí](course/Conceptos/gr
 
 ## Week 6
 
-- [**Node.js =>**](https://nodejs.org/en/) *Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.*
+- [**Node.js**](https://nodejs.org/en/) *Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.*
 
-- [**Devtool =>**](https://www.npmjs.com/package/devtool) *Allows you to profile, debug and develop typical Node.js programs with some of the features of Chrome DevTools*
+- [**Devtool**](https://www.npmjs.com/package/devtool) *Allows you to profile, debug and develop typical Node.js programs with some of the features of Chrome DevTools*
 
-- [**CRUD =>**](https://www.codecademy.com/articles/what-is-crud) *Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.*
+- [**CRUD**](https://www.codecademy.com/articles/what-is-crud) *Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.*
 
-- [**Nodemon =>**](https://nodemon.io/) *Utility that will monitor for any changes in your source and automatically restart your server*
+- [**Nodemon**](https://nodemon.io/) *Utility that will monitor for any changes in your source and automatically restart your server*
 
-- [**Lodash =>**](https://lodash.com/) *A modern JavaScript utility library delivering modularity, performance & extras.*
+- [**Lodash**](https://lodash.com/) *A modern JavaScript utility library delivering modularity, performance & extras.*
 
-- [**Dotenv =>**](https://www.npmjs.com/package/dotenv) *Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code*
+- [**Dotenv**](https://www.npmjs.com/package/dotenv) *Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code*
 
-- [**Express =>**](http://expressjs.com/) *A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*
+- [**Express**](http://expressjs.com/) *A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.*
 
 
 
 ### Challenges Week 6
 
-- [**Simple copy-paste =>**](course/backend/nodejs/cp-node)
+- [**Simple copy-paste**](course/backend/nodejs/cp-node)
 
-- [**Series of exercises learnyounode =>**](course/backend/nodejs/landing)
+- [**Series of exercises learnyounode**](course/backend/nodejs/landing)
 
-- [**Streams Transform =>**](course/backend/nodejs/transform)
+- [**Streams Transform**](course/backend/nodejs/transform)
 
-- [**Client-Server chat =>**](ourse/backend/nodejs/tcp-client-server-chat)
+- [**Client-Server chat**](ourse/backend/nodejs/tcp-client-server-chat)
 
-- [**Firs steps =>**](course/backend/express/landing)
+- [**Firs steps**](course/backend/express/landing)
 
-- [**Staff api =>**](course/backend/express/staff.api/staff-api-pro)
+- [**Staff api**](course/backend/express/staff.api/staff-api-pro)
 
-- [**Simple login api =>**](course/backend/express/users-api)
+- [**Simple login api**](course/backend/express/users-api)
 
-- [**Task list api =>**](course/backend/express/tasks-list_express)
+- [**Task list api**](course/backend/express/tasks-list_express)

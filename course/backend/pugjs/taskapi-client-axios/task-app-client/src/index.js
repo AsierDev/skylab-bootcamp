@@ -11,7 +11,7 @@ app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
     taskApi.getTodoTasks()
-        .then((todos) => { // todos & dones?
+        .then((todos) => { 
             taskApi.getDoneTasks()
                 .then((dones) => {
                     res.render('index', { taskstodo: todos.data.data , tasksdone: dones.data.data})
@@ -31,7 +31,7 @@ app.post('/tasks', formBodyParser, (req, res) => {
 app.get('/tasks/:id', (req, res) => {
     const { id } = req.params
 
-    taskApi.markDone(id) // How id?   
+    taskApi.markDone(id)
         res.redirect('/')
 
 })

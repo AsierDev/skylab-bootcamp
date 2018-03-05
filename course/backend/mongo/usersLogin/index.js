@@ -5,13 +5,17 @@ const { MongoClient } = require('mongodb')
 const bodyParser = require('body-parser')
 const ObjectID = require('mongodb').ObjectID
 
+const host = process.env.MONGO_HOST
+const port = process.env.MONGO_PORT
+
+
 const app = express()
 
 app.set('view engine', 'pug')
 
 const formBodyParser = bodyParser.urlencoded({ extended: false })
 
-MongoClient.connect('mongodb://localhost:27017/', (err, conn) => {
+MongoClient.connect(`mongodb://${host}:${port}`, (err, conn) => {
     if (err) throw err
 
     const db = conn.db('bootcamp')

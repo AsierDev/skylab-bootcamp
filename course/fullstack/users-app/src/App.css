@@ -1,0 +1,65 @@
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  /* background: black !important; */
+  background: #191414;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #191414, #414345);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #191414, #414345);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
+.navbar {
+
+}
+
+.navbar span {
+  font-size: 2em;
+  font-weight: 600;
+  color: #fff; }
+
+#search {
+  height: 20em; }
+
+#albums, #songs {
+  height: 50em; }
+
+.button {
+  color: #fff !important; }
+
+.modal-title {
+  cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */
+.card-columns, .card {
+  display: inline-block;
+  margin: 0 !important;
+  column-gap: 0 !important; }
+
+.card {
+  background: transparent !important;
+  border: none;
+  padding: 0 !important; }
+
+.list-group-item {
+  text-align: center;
+  background: transparent;
+  cursor: pointer;
+  border: none !important; }
+
+.list-group-item span {
+  background: #191414;
+  opacity: 0.8;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #fff;
+  padding: 2%;
+  display: block;
+  border-radius: 15px; }
+
+.list-group-item span:hover {
+  color: #191414;
+  background: #1DB954;
+  font-size: 1.6em;
+  font-weight: bold; }
+

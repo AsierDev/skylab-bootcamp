@@ -1,41 +1,43 @@
+const mongoose = require('mongoose')
+
 require('dotenv').config()
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const { MongoClient } = require('mongodb')
-const path = require('path')
 const uuid = require('uuid/v4')
-const url = require('url')
+
+const express = require('express')
+
+const bodyParser = require('body-parser')
+
+const { success, fail } = require('./api-utils')
 
 const host = process.env.MONGO_HOST
 const port = process.env.MONGO_PORT
 const database = process.env.MONGO_DB
 const collection = process.env.MONGO_COL
 
-MongoClient.connect(`mongodb://${host}:${port}`, (err, conn) => {
-    if (err) throw err
 
-    const db = conn.db(database)
+mongoose.connect(`mongodb://${host}:${port}/${database}`)
 
-    const app = express()
 
-    app.set('view engine', 'pug')
+const User = mongoose.model('User', { id: String, name: String, surname: String, email: String, username: String, password: String })
 
-    app.set('views', path.join(process.cwd(), 'pug_views'));
+const db = mongoose.connection
 
-    app.get('/', (req, res) => {
-        db.collection(collection).find().toArray((err, users) => {
-            if (err) throw err
+const app = express()
 
-            let { query: { id, error, user } } = req
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
 
-            if (user) user = JSON.parse(user)
 
-            res.render('index', { users, id, error, user })
-        })
-    })
+    app.get('/api/users', (req, res) => {
+        User.find(({}), { _id: 0, passsword: 0 })
+            .then(users => res.json(success(users)))
+            .catch(err => res.json(fail(err)))
 
-    const formBodyParser = bodyParser.urlencoded({ extended: false })
+    }
+    )
+
+    const jsonBodyParser = bodyParser.json()
 
     function validate(user) {
         for (const prop in user) {
@@ -45,74 +47,112 @@ MongoClient.connect(`mongodb://${host}:${port}`, (err, conn) => {
         }
     }
 
-    app.post('/register', formBodyParser, (req, res) => {
+    app.post('/api/user', jsonBodyParser, (req, res) => {
         const { body: { name, surname, email, username, password } } = req
 
         Promise.resolve()
             .then(() => {
                 validate({ name, surname, email, username, password })
 
-                return db.collection(collection).findOne({ username })
+                return User.findOne({ username })
             })
             .then(user => {
                 if (user) throw Error('username already exists')
 
                 const id = uuid()
 
-                return db.collection(collection).insert({ id, name, surname, email, username, password })
+                return User.create({ id, name, surname, email, username, password })
+                    .then(() => id)
             })
-            .then(() => {
-                res.redirect('/')
+            .then(id => {
+                res.json(success({ id }))
             })
             .catch(err => {
-                res.redirect(url.format({
-                    pathname: '/',
-                    query: { error: err.message, user: JSON.stringify({ name, surname, email, username }) }
-                }))
+                res.json(fail(err.message))
             })
     })
 
-    app.get('/edit/:id', (req, res) => {
-        const { params: { id } } = req
-
-        res.redirect(url.format({ // ?id=...
-            pathname: '/',
-            query: { id }
-        }))
-    })
-
-    app.post('/save/:id', formBodyParser, (req, res) => {
+    app.put('/api/user/:id', jsonBodyParser, (req, res) => {
         const { body: { name, surname, email, username, password, newUsername, newPassword } } = req
         const { params: { id } } = req
 
         Promise.resolve()
             .then(() => {
-                validate({ name, surname, email, username, password, newUsername, newPassword })
+                validate({ id, name, surname, email, username, password, newUsername, newPassword })
 
-                return db.collection(collection).findOne({ username: newUsername })
+                return User.findOne({ username: newUsername })
             })
             .then(user => {
                 if (user) throw Error('username already exists')
 
-                return db.collection(collection).findOne({ id })
+                return User.findOne({ id })
             })
             .then(user => {
                 if (user.username !== username || user.password !== password) throw Error('username and/or password wrong')
 
-                return db.collection(collection).updateOne({ id }, { $set: { name, surname, email, username: newUsername, password: newPassword } })
+                return User.update({ id }, { name, surname, email, username: newUsername, password: newPassword })
             })
             .then(() => {
-                res.redirect('/')
+                res.json(success())
             })
             .catch(err => {
-                res.redirect(url.format({
-                    pathname: '/',
-                    query: { error: err.message, id, user: JSON.stringify({ name, surname, email, username, newUsername }) }
-                }))
+                res.json(fail(err.message))
             })
     })
 
+    app.delete('/api/user/:id', jsonBodyParser, (req, res) => {
+        const { body: { username, password } } = req
+        const { params: { id } } = req
+
+        Promise.resolve()
+            .then(() => {
+                validate({ id, username, password })
+
+                return User.findOne({ username })
+            })
+            .then(user => {
+                if (!user) throw Error('user does not exist')
+
+                if (user.id !== id) throw Error('user id does not match the one provided')
+
+                if (user.username !== username || user.password !== password) throw Error('username and/or password wrong')
+
+                return User.deleteOne({ id })
+            })
+            .then(() => {
+                res.json(success())
+            })
+            .catch(err => {
+                res.json(fail(err.message))
+            })
+    })
+
+    app.get('/api/user/:id', (req, res) => {
+        const { params: { id } } = req
+
+        Promise.resolve()
+            .then(() => {
+                validate({ id })
+
+                return User.findOne({ id }, { _id: 0, password: 0 })
+            })
+            .then(user => {
+                if (!user) throw Error('user does not exist')
+
+                res.json(success(user))
+            })
+            .catch(err => {
+                res.json(fail(err.message))
+            })
+    })
+
+
     const port = process.env.PORT
 
-    app.listen(port, () => console.log(`users app running on port ${port}`))
+    app.listen(port, () => console.log(`users api running on port ${port}`))
+
+
 })
+
+
+

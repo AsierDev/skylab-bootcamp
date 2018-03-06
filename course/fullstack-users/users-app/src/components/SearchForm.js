@@ -14,8 +14,8 @@ export class SearchForm extends Component {
         e.preventDefault()
 
         const { inputSearch } = this.state
-
         this.props.onResults(inputSearch)
+
 
     }
 

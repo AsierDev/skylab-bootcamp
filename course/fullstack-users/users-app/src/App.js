@@ -6,47 +6,60 @@ import './App.css';
   Buttons,
   Navbar
 } from 'reactstrap'; */
-import { SearchForm } from './components/SearchForm'
+import { Route, HashRouter } from 'react-router-dom'
 
-// import usersApi from './components/api-client'
+import SearchForm from './components/SearchForm'
+import ListUsers from './components/ListUsers'
+import NavBar from './components/NavBar'
+
+import { usersApi } from './components/api-client'
+
+
 
 class App extends Component {
 
-  state = {
-    results: ""
+  constructor() {
+    super()
+
+    this.state = {
+      users: []
+    }
   }
 
 
-  _handleResults = inputSearch => {
-    this.setState(inputSearch)
-    alert(inputSearch)
+  fetchUsers = query => {
+    usersApi.searchUsers(query)
+      .then(users => this.setState({
+        users: users.data.data
+      }))
   }
-
 
   render() {
     return (
-      <div>
-        <nav className="navbar navbar-light bg-primary justify-content-center">
-          <form className="form-inline">
-            <button 
-            className="btn btn-dark p-3 mx-5" 
-            type="button">Main button
-            </button>
-            <button 
-            className="btn btn-dark p-3 mx-5" 
-            type="button">Main button
-            </button>
-          </form>
-        </nav>
+      <div className="App">
+        <HashRouter>
+          <div className="container-fluid">
+            <Route path="/" render={() => (
+              <NavBar />
+            )} />
+            <Route path="/" render={() => (
+              <SearchForm onResults={this.fetchUsers} />
+            )} />
+            <Route path="/" render={() => (
+              <ListUsers
+                usersList={this.state.users}
+              />
+            )} />
 
-        <main className="container-fluid">
-          <SearchForm onResults={this._handleResults}/> 
-        </main>
+          </div>
+        </HashRouter>
+
       </div>
 
 
     );
   }
 }
+
 
 export default App;

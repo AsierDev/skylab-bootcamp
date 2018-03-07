@@ -15,11 +15,9 @@ const port = process.env.MONGO_PORT
 const database = process.env.MONGO_DB
 const collection = process.env.MONGO_COL
 
-const userModel = require('./models/UserModel')
+//const User = require('./models/UserModel')
 
 const handleList = require('./routes/users/handlers/handleList')
-
-
 
 
 mongoose.connect(`mongodb://${host}:${port}/${database}`)

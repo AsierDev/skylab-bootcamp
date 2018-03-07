@@ -6,7 +6,9 @@ import './App.css';
   Buttons,
   Navbar
 } from 'reactstrap'; */
-import { SearchForm } from './components/SearchForm';
+import { SearchForm } from './components/SearchForm'
+
+// import usersApi from './components/api-client'
 
 class App extends Component {
 
@@ -16,7 +18,7 @@ class App extends Component {
 
 
   _handleResults = inputSearch => {
-    // this.setState(inputSearch)
+    this.setState(inputSearch)
     alert(inputSearch)
   }
 

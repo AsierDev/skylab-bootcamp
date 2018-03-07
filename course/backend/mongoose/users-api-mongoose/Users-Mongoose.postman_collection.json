@@ -1,0 +1,146 @@
+{
+	"info": {
+		"name": "Users-Mongoose",
+		"_postman_id": "1e315128-0997-46ea-8fe2-08d64f7efe7b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UPDATE user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Hola\",\n\t\"surname\": \"Amigo\",\n\t\"email\": \"e\",\n\t\"username\": \"u2\",\n\t\"password\": \"p\",\n\t\"newUsername\": \"Hola\",\n\t\"newPassword\": \"456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/4c7addb4-a61b-49fd-b30f-1f3629babc34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"4c7addb4-a61b-49fd-b30f-1f3629babc34"
+					]
+				},
+				"description": "\t\t"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"As\",\n\t\"surname\": \"Pe\",\n\t\"email\": \"a@a.com\",\n\t\"username\": \"A1\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LIST users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:5000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE a user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"u2\" ,\n\t\"password\": \"p\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/a60fd06a-6723-4f69-a9bd-f5ab0d49b194",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"a60fd06a-6723-4f69-a9bd-f5ab0d49b194"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LIST a single user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/user/dd9594b6-8a37-4b36-adf4-e1f22ea9a53e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"dd9594b6-8a37-4b36-adf4-e1f22ea9a53e"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

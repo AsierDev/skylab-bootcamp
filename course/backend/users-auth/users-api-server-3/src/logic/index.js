@@ -3,6 +3,20 @@ const validate = require('./validate')
 const uuid = require('uuid/v4')
 
 module.exports = {
+    verify(username, password) {
+        return Promise.resolve()
+            .then(() => {
+                validate({ username, password })
+
+                return User.findOne({ username, password })
+            })
+            .then(user => {
+                if (!user) throw Error('username and/or password wrong')
+
+                return true
+            })
+    },
+
     register(name, surname, email, username, password) {
         return Promise.resolve()
             .then(() => {
@@ -59,10 +73,6 @@ module.exports = {
 
                 return user
             })
-    },
-    retrieveQuery(query) {
-        return User.find({ $or: [{ name: new RegExp(query, 'i') }, { surname: new RegExp(query, 'i') }, { username: new RegExp(query, 'i') }, { email: new RegExp(query, 'i') }] }, { _id: 0, password: 0, __v: 0 })
- 
     },
 
     remove(id, username, password) {

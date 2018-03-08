@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-/* import {
-  Forms,
-  Buttons,
-  Navbar
-} from 'reactstrap'; */
+
 import { Route, HashRouter } from 'react-router-dom'
 
 import SearchForm from './components/SearchForm'
 import ListUsers from './components/ListUsers'
 import NavBar from './components/NavBar'
 
-import { usersApi } from './components/api-client'
+import usersApi from './api/userApi'
 
 
 

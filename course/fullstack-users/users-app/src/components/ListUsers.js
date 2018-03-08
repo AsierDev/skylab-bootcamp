@@ -13,7 +13,7 @@ class ListUsers extends Component {
         this.state = {
             showList: true,
             editUser: false,
-            // showModal: false,
+            showModal: false,
 
         }
 
@@ -21,10 +21,30 @@ class ListUsers extends Component {
 
     onEdit = (id) => {
         this.setState({ 
-            editUser: true, 
-            // showModal: true
+            editUser: true,
+            // showList: false 
+            //showModal: true
         })
-        console.log(id)
+        console.log(this.props)
+
+        
+    }
+
+    onDelete = (id) => {
+        this.setState({
+           
+           
+            showModal: true
+        })
+        console.log(this.props)
+
+    }
+
+    closeModal = () => {
+
+        this.setState = ({
+            showModal: false
+        })
     }
 
 
@@ -44,7 +64,13 @@ class ListUsers extends Component {
                                         this.onEdit(user.id)
                                     }}
                                 >Edit</button>
-                                <button type="button" className="btn btn-danger ml-3">Delete</button>
+                                <button type="button" 
+                                className="btn btn-danger ml-3"
+                                onClick={e => {
+                                    e.preventDefault()
+                                    this.onDelete(user.id)
+                                }}
+                                >Delete</button>
 
                             </div>
                         </div>
@@ -56,6 +82,13 @@ class ListUsers extends Component {
                 {
                     (this.state.editUser) ? <EditForm /> : undefined
                 }
+
+                <Modal isOpen={this.state.showModal} >
+                
+                <h2> delete? </h2>
+                    <button className="btn btn-primary" onClick={this.closeModal}>Cerrar</button>
+
+                </Modal>
 
 
             </div>

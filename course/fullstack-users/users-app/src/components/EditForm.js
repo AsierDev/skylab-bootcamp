@@ -15,12 +15,19 @@ class EditForm extends Component {
 
     }
 
+    closeModal = () => {
+        
+        this.setState= ({
+            showModal: false
+        })
+    }
+
 
     render() {
         return (
 
             
-            <Modal isopen="{this.state.showModal}">
+            <Modal isOpen={this.state.showModal} > 
             
             
                             <form>
@@ -60,6 +67,7 @@ class EditForm extends Component {
 
 
                                 <button type="submit" className="btn btn-primary">Edit User</button>
+                                <button className="btn btn-primary" onClick={this.closeModal}>Cerrar</button>
                             </form>
 
                        

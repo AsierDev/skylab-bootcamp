@@ -158,6 +158,11 @@ Se pueden ver los proyectos del resto de compañeros [aquí](course/Conceptos/gr
 
 # BACKEND
 
+![image](/skylab-bootcamp/course/Conceptos/ExquemaServer-Client.jpg)
+
+
+
+
 ## Week 6
 
 - [**Node.js**](https://nodejs.org/en/) *Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.*
